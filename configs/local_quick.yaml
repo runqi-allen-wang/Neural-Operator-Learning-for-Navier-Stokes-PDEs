@@ -1,0 +1,33 @@
+# Very small local quick-test configuration using the real .npz data.
+
+project:
+  experiment_name: local_quick_fno
+
+data:
+  path: data/processed/NavierStokes_V1e-3_N1400_T20.npz
+  n_train: 32
+  n_val: 8
+  n_test: 8
+  train_resolution: 32
+  eval_resolution: 32
+  batch_size: 4
+  num_workers: 0
+
+model:
+  name: fno
+  width: 12
+  hidden: 32
+  depth: 2
+  modes1: 8
+  modes2: 8
+  padding: 4
+  deeponet_latent: 32
+
+training:
+  epochs: 2
+  amp: false
+
+system:
+  device: auto
+  tf32: true
+  compile: false

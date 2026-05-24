@@ -1,0 +1,10 @@
+# Install CUDA-enabled torch/torchvision separately first, e.g.
+#   pip install torch torchvision --index-url https://download.pytorch.org/whl/cu121
+numpy>=1.24.0
+scipy>=1.10.0
+matplotlib>=3.7.0
+pandas>=2.0.0
+pyyaml>=6.0
+tqdm>=4.66.0
+h5py>=3.9.0
+deepxde>=1.12.0

@@ -1,0 +1,60 @@
+# Default configuration for Navier--Stokes neural operator experiments.
+# Override any value from CLI with, e.g.:
+#   --extra model.name=fno training.epochs=30 data.n_train=1000
+
+project:
+  name: neural_operator_ns
+  output_root: results/runs
+  experiment_name: default_run
+  seed: 2026
+
+system:
+  device: auto       # auto | cuda | cpu | cuda:0
+  tf32: true         # Enable TF32 matmul/conv on RTX GPUs for speed.
+  compile: false     # Optional torch.compile; keep false for first local runs.
+  num_threads: null  # Optional CPU thread count.
+
+data:
+  # Local path after running scripts/prepare_official_data.py
+  path: data/processed/NavierStokes_V1e-3_N1400_T20.npz
+  key: u
+  n_train: 1000
+  n_val: 100
+  n_test: 200
+  t_in: 10
+  t_out: 10
+  train_resolution: 64
+  eval_resolution: 64
+  batch_size: 8
+  num_workers: 0
+  pin_memory: true
+  normalize: true
+  shuffle_train: true
+
+model:
+  name: fno        # fno | deeponet | cnn | unet
+  width: 32
+  hidden: 128
+  depth: 4
+  modes1: 12
+  modes2: 12
+  padding: 8
+  dropout: 0.0
+  deeponet_latent: 128
+  deeponet_branch: cnn  # cnn | mlp
+
+training:
+  epochs: 30
+  lr: 0.001
+  weight_decay: 0.0001
+  scheduler: cosine
+  min_lr: 0.000001
+  amp: false       # FNO FFT is safer in float32; try true for CNN/U-Net after smoke tests.
+  grad_clip: 1.0
+  log_every: 1
+  save_best: true
+  early_stop_patience: 20
+
+visualization:
+  num_examples: 3
+  time_index: 0

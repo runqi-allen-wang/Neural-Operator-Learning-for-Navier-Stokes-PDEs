@@ -1,0 +1,32 @@
+# Local single-GPU configuration.
+# This file inherits configs/default.yaml when used with --config.
+
+project:
+  experiment_name: local_fno
+
+data:
+  path: data/processed/NavierStokes_V1e-3_N1400_T20.npz
+  n_train: 1000
+  n_val: 100
+  n_test: 200
+  batch_size: 8          # Safer for 6GB laptop GPUs. Increase to 16/32 if memory allows.
+  num_workers: 0         # Windows-friendly default. Use 2-4 on Linux if desired.
+  pin_memory: true
+
+model:
+  name: fno
+  width: 32
+  depth: 4
+  modes1: 12
+  modes2: 12
+  padding: 8
+
+training:
+  epochs: 30
+  amp: false             # Keep false for FNO FFT stability. Try true for CNN/U-Net only.
+  grad_clip: 1.0
+
+system:
+  device: auto           # auto | cuda | cpu | cuda:0
+  tf32: true             # Faster matmul/convolution on RTX GPUs.
+  compile: false         # Set true only after smoke tests; may be slow on Windows.

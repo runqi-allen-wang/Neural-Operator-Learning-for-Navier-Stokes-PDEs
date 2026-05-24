@@ -1,0 +1,12 @@
+project:
+  experiment_name: fno_fast
+model:
+  name: fno
+  width: 32
+  depth: 4
+  modes1: 12
+  modes2: 12
+  padding: 8
+training:
+  epochs: 30
+  amp: false

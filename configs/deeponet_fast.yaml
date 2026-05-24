@@ -1,0 +1,11 @@
+project:
+  experiment_name: deeponet_fast
+model:
+  name: deeponet
+  hidden: 128
+  depth: 4
+  deeponet_latent: 128
+  deeponet_branch: cnn
+training:
+  epochs: 30
+  amp: true

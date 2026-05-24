@@ -1,0 +1,10 @@
+project:
+  experiment_name: unet_fast
+model:
+  name: unet
+  width: 32
+  depth: 4
+  dropout: 0.0
+training:
+  epochs: 30
+  amp: true

@@ -1,0 +1,43 @@
+# Fast profile is designed for a local single-GPU run.
+# Increase epochs or n_train in the final report run if time allows.
+profiles:
+  smoke:
+    training.epochs: 1
+    data.n_train: 4
+    data.n_val: 2
+    data.n_test: 2
+    data.batch_size: 2
+    data.train_resolution: 8
+    data.eval_resolution: 8
+    model.width: 4
+    model.hidden: 16
+    model.depth: 1
+    model.modes1: 4
+    model.modes2: 4
+    model.padding: 0
+    model.deeponet_latent: 16
+  fast:
+    training.epochs: 30
+    data.n_train: 1000
+    data.n_val: 100
+    data.n_test: 200
+  report:
+    training.epochs: 60
+    data.n_train: 1400
+    data.n_val: 200
+    data.n_test: 300
+
+model_comparison:
+  models: [fno, deeponet, cnn, unet]
+
+data_scaling:
+  model: fno
+  n_train: [200, 500, 1000, 1400]
+
+depth_scaling:
+  model: fno
+  depth: [2, 4, 6]
+
+resolution_scaling:
+  model: fno
+  resolution: [32, 48, 64]

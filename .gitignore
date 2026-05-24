@@ -1,0 +1,43 @@
+# Python cache
+__pycache__/
+*.py[cod]
+.ipynb_checkpoints/
+
+# Environments
+.env
+.venv/
+venv/
+.env.local
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Large datasets
+data/raw/*
+data/processed/*
+!data/raw/.gitkeep
+!data/processed/.gitkeep
+
+# Model checkpoints and training runs
+results/runs/
+*.pt
+*.pth
+*.ckpt
+
+# Ignore intermediate result files
+results/tables/*
+results/figures/*
+
+# Keep final cleaned tables and publication-ready figures
+!results/tables/final/
+!results/tables/final/**
+!results/figures/final/
+!results/figures/final/**
+!results/figures/final_neurips/
+!results/figures/final_neurips/**
+
+# Temporary files
+*.log
+*.tmp
+*.bak
