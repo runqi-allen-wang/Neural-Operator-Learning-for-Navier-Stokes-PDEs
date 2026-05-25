@@ -2,7 +2,7 @@
 
 This repository contains a reproducible deep learning project for **Neural Operator Learning** on the 2D Navier--Stokes equation. It implements and compares **FNO**, **DeepONet**, **CNN**, and **U-Net**, and studies how neural operator generalization changes with **training data size**, **network depth**, and **spatial resolution**.
 
-The project was developed for the *Deep Learning and Applications* course at Shanghai Jiao Tong University, Spring 2026.
+The project was developed for the *Deep Learning and Applications* course at Shanghai Jiao Tong University, Spring 2026. A short project paper is available here: [Neural-Operator-Learning.pdf](Neural-Operator-Learning.pdf).
 
 ## Highlights
 
