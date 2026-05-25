@@ -1,4 +1,4 @@
-# Neural Operator Learning for Navier--Stokes PDEs
+# Neural Operator Learning for Navier-Stokes PDEs
 
 This repository contains a reproducible deep learning project for **Neural Operator Learning** on the 2D Navier--Stokes equation. It implements and compares **FNO**, **DeepONet**, **CNN**, and **U-Net**, and studies how neural operator generalization changes with **training data size**, **network depth**, and **spatial resolution**.
 
